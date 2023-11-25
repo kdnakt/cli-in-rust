@@ -1,6 +1,6 @@
 use clap::Parser
 
-#[#[derive((Parser))]]
+#[derive(Parser)]
 struct Cli {
     pattern: String,
     path: std::path::PathBuf,

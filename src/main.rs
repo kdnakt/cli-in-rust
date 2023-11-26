@@ -1,5 +1,6 @@
 use clap::Parser;
 use std::io::BufRead;
+use anyhow::Result;
 
 #[derive(Parser)]
 struct Cli {
@@ -7,7 +8,7 @@ struct Cli {
     path: std::path::PathBuf,
 }
 
-fn main() -> Result<(), std::io::Error> {
+fn main() -> Result<()> {
     // let pattern = std::env::args().nth(1).expect("no pattern given");
     // let path = std::env::args().nth(2).expect("no path given");
 

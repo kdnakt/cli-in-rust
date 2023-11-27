@@ -1,6 +1,9 @@
 use clap::Parser;
 use std::io::BufRead;
-use anyhow::Result;
+use anyhow::{
+    Context,
+    Result,
+};
 
 #[derive(Parser)]
 struct Cli {
@@ -22,7 +25,8 @@ fn main() -> Result<()> {
     // let content = std::fs::read_to_string(&args.path)
     //     .expect("could not read file");
 
-    let f = std::fs::File::open(args.path)?;
+    let f = std::fs::File::open(&args.path)
+        .with_context(|| format!("could not open file `{}`", args.path.display()))?;
     let reader = std::io::BufReader::new(f);
 
     for line in reader.lines() {

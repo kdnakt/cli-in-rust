@@ -20,6 +20,6 @@ where R: std::io::Read
 fn find_a_match() {
     let mut result = Vec::new();
     let content = std::io::BufReader::new("lorem ipsum\ndolor sit amet".as_bytes());
-    find_matches(content, "lorem", &mut result);
+    let _ = find_matches(content, "lorem", &mut result);
     assert_eq!(result, b"lorem ipsum\n");
 }
